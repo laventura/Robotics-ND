@@ -56,25 +56,40 @@ void process_image_callback(const sensor_msgs::Image img)
 
 
     if (white_count > 0) {
-        // find center avg of all white x positions
+        // 2a - find center avg of all white x positions
         white_center = white_x_sum / white_count;  
         // remove DEBUG
-        ROS_DEBUG("img H %d, W: %d, white count: %d, ball center: %d", 
-            img.height, img.step, white_count, white_center);
+        // ROS_INFO("img H %d, W: %d, white count: %d, ball center: %d", 
+        //     img.height, img.step, white_count, white_center);
 
-        // 2 - see where the center of white pixels
-        if (white_center < img.width / 3) {
-            // LEFT
-            ang_z = 0.5;
-            lin_x = 0.1;
-        } else if (white_center > img.width * 2 / 3) {
-            // RIGHT
-            ang_z = -0.5;
-            lin_x = 0.1;
+        const float MAX_ANG_Z = 0.5;            // max ang_z velocity  
+        const int IMG_THIRD = img.step / 3;     // # pixels in 1/3 of img width
+        const int TH_LEFT = img.step / 3;       // our left threshold
+        const int TH_RIGHT = img.step * 2 / 3;  // our right threshold
+
+        // 2b - see where the center of white pixels
+        if (white_center < TH_LEFT) {
+            // how far left?
+            int diff = TH_LEFT - white_center; // NOTE: this should be +ve
+            // scale the ang velocity by how far left
+            ang_z = MAX_ANG_Z * diff / IMG_THIRD;
+            lin_x = 0.3;
+            // debug
+            ROS_DEBUG("white count: %d, ball center: %d, diff: %d, ang %1.2f", 
+             white_count, white_center, diff, ang_z);
+        } else if (white_center > TH_RIGHT) {
+            // how far right?
+            int diff = TH_RIGHT - white_center; // NOTE: this is negative
+            // scale the ang velocity by how far right
+            ang_z = MAX_ANG_Z * diff / IMG_THIRD;
+            lin_x = 0.3;
+            // debug
+            ROS_DEBUG("white count: %d, ball center: %d, diff: %d, ang %1.2f", 
+             white_count, white_center, diff, ang_z);
         } else {
             // FORWARD
             ang_z = 0.0;
-            lin_x = 0.1;
+            lin_x = 0.25;
         }
     } else {
         // STOP
