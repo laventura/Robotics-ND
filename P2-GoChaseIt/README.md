@@ -63,18 +63,13 @@ Directory Structure
 │   │   │   │   ├── office.world
 │   │   │   ├── CMakeLists.txt                 # compiler instructions
 │   │   │   ├── package.xml                    # package info
-├── my_ball                                    # Model files 
-│   ├── model.config
-│   ├── model.sdf
-
 ```
 
 - [drive_bot.cpp](/catkin_ws/src/ball_chaser/src/drive_bot.cpp): ROS service C++ script, command the robot with specify speeds.  
-- [process_images.cpp](/catkin_ws/src/ball_chaser/src/process_images.cpp): ROS service C++ script, process the camera image and return requested speeds.  
-- [world.launch](/catkin_ws/src/my_gokart/launch/world.launch): Launch my_gokart mode in Gazebo world with building and plugins.  
+- [process_images.cpp](/catkin_ws/src/ball_chaser/src/process_images.cpp): ROS service C++ script, process the camera image and return requested speeds.   
 - [robot_description.launch](/catkin_ws/src/my_robot/launch/robot_description.launch): Create robot model in Gazebo world. 
 - [empty.world](/catkin_ws/src/my_robot/worlds/empty.world): Gazebo world file that includes nothing.  
-- [office.world](/catkin_ws/src/my_robot/worlds/office.world): Gazebo world file that includes the models.  
+- [myworld.world](/catkin_ws/src/my_robot/worlds/myworld.world): Gazebo world file that includes the models.  
 - [CMakeLists.txt](/catkin_ws/src/my_robot/CMakeLists.txt): File to link the C++ code to libraries.  
 - [hokuyo.dae](/catkin_ws/src/my_robot/meshes/hokuyo.dae): Hokuyo LiDAR sensor mesh model.  
 - [my_robot.gazebo](/catkin_ws/src/my_robot/urdf/my_robot.gazebo): Define my_robot URDF model plugins.  
@@ -84,7 +79,7 @@ Directory Structure
 * Clone this repository
 * Open the repository and make  
 ```
-cd /home/workspace/catkin_ws/
+cd <DIR>/catkin_ws/
 catkin_make
 ```
 * Launch my_robot in Gazebo to load both the world and plugins  
@@ -93,13 +88,13 @@ roslaunch my_robot world.launch
 ```   
 * Launch ball_chaser and process_image nodes  
 ```
-cd /home/workspace/catkin_ws/
+cd <DIR>/catkin_ws/
 source devel/setup.bash
 roslaunch ball_chaser ball_chaser.launch
 ```  
 * Visualize  
 ```
-cd /home/workspace/catkin_ws/
+cd <DIR>/catkin_ws/
 source devel/setup.bash
 rosrun rqt_image_view rqt_image_view  
 ```  
