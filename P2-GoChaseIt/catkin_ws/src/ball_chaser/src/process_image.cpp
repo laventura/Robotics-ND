@@ -42,9 +42,11 @@ void process_image_callback(const sensor_msgs::Image img)
     float lin_x = 0.0, ang_z = 0.0;     // velocities for robot
 
     // 1 - Loop thru image to see if any white pixels
-    for (int i = 0; i < img.height * img.step - 1; i++  ) {
-        // if white pix...
-        if (img.data[i] == WHITE) {
+    for (int i = 0; i < img.height * img.step - 2; i++  ) {
+        // if white pix - in all R, G, B channels
+        if ((img.data[i] == WHITE) && 
+            (img.data[i+1] == WHITE) && 
+            (img.data[i+2] == WHITE)) {
             // get x pos of white
             white_x =  i % img.step;
             white_count++;
