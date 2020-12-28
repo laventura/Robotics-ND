@@ -19,7 +19,7 @@ echo  " cd ${PATH_CATKIN_WS} && source devel/setup.bash && roslaunch turtlebot_g
 echo " "
 xterm -title world -bg olive -e " cd ${PATH_CATKIN_WS} && source devel/setup.bash && roslaunch turtlebot_gazebo turtlebot_world.launch world_file:=${PATH_CATKIN_WS}/src/map/newworld.world " & 
 
-sleep 7
+sleep 10
 
 #
 # Open the workspace, source and launch gmapping_demo.launch
@@ -27,14 +27,14 @@ echo " cd ${PATH_CATKIN_WS} && source devel/setup.bash && roslaunch turtlebot_ga
 echo " "
 xterm -title gmapping -bg teal -e " cd ${PATH_CATKIN_WS} && source devel/setup.bash && roslaunch turtlebot_gazebo gmapping_demo.launch" &
 
-sleep 7
+sleep 10
 
 # Open the workspace, source and launch view_navigation.launch
 echo  "cd ${PATH_CATKIN_WS} && source devel/setup.bash && roslaunch turtlebot_rviz_launchers view_navigation.launch" &
 echo " "
 xterm -title navigation -e " cd ${PATH_CATKIN_WS} && source devel/setup.bash && roslaunch turtlebot_rviz_launchers view_navigation.launch " &
 
-sleep 7
+sleep 10
 
 # Open the workspace, source and launch keyboard_teleop.launch
 echo "cd ${PATH_CATKIN_WS} && source devel/setup.bash && roslaunch turtlebot_teleop keyboard_teleop.launch"
