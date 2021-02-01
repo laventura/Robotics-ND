@@ -19,9 +19,11 @@ sleep 10
 # 2 - View Navigation Launch
 # Open the workspace, source and launch view_navigation.launch
 echo "Launching View Navigation..."
-echo  "cd ${PATH_CATKIN_WS} && source devel/setup.bash && roslaunch turtlebot_rviz_launchers view_navigation.launch" &
+#echo  " roslaunch rviz rviz -d src/rvizConfig/homeServiceConfig.rviz" 
+echo " cd ${PATH_CATKIN_WS} && source devel/setup.bash && roslaunch turtlebot_rviz_launchers view_navigation.launch rviz_path:=${PATH_CATKIN_WS}/src/rvizConfig/homeServiceConfig.rviz"
 echo " "
-xterm -title navigation -e " cd ${PATH_CATKIN_WS} && source devel/setup.bash && roslaunch turtlebot_rviz_launchers view_navigation.launch rviz_path:=${path_catkin_ws}/src/rvizConfig/homeServiceConfig.rviz" &
+xterm -title navigation -bg navy -e " cd ${PATH_CATKIN_WS} && source devel/setup.bash && roslaunch turtlebot_rviz_launchers view_navigation.launch rviz_path:=${PATH_CATKIN_WS}/src/rvizConfig/homeServiceConfig.rviz" &
+#xterm -title navigation -e " cd ${PATH_CATKIN_WS} && source devel/setup.bash && roslaunch rviz rviz -d src/rvizConfig/homeServiceConfig.rviz" &
 
 sleep 10
 
@@ -31,9 +33,9 @@ echo " cd ${PATH_CATKIN_WS} && source devel/setup.bash && roslaunch turtlebot_ga
 echo " "
 xterm -title AMCL -e " cd ${PATH_CATKIN_WS} && source devel/setup.bash && roslaunch turtlebot_gazebo amcl_demo.launch map_file:=${PATH_CATKIN_WS}/src/map/map.yaml " & 
 
-sleep 7
+sleep 10
 
-#4 - Add Markers launc
-#echo "Adding Markers...."
-#echo " roslaunch add_markers add_markers.launch " 
-xterm -bg darkblue -geom 80x40 -e " roslaunch add_markers add_markers.launch " &
+#4 - Add Markers Timed launch
+echo "Adding Markers (timed)...."
+echo " roslaunch add_markers add_markers_timed.launch " 
+xterm -bg darkblue -geom 80x40 -e " roslaunch add_markers add_markers_timed.launch " &
