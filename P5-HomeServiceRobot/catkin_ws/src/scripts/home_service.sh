@@ -19,9 +19,9 @@ sleep 10
 # 2 - View Navigation Launch
 # Open the workspace, source and launch view_navigation.launch
 echo "Launching View Navigation..."
-echo  "cd ${PATH_CATKIN_WS} && source devel/setup.bash && roslaunch turtlebot_rviz_launchers view_navigation.launch" &
+echo " cd ${PATH_CATKIN_WS} && source devel/setup.bash && roslaunch turtlebot_rviz_launchers view_navigation.launch rviz_path:=${PATH_CATKIN_WS}/src/rvizConfig/homeServiceConfig.rviz"
 echo " "
-xterm -title navigation -e " cd ${PATH_CATKIN_WS} && source devel/setup.bash && roslaunch turtlebot_rviz_launchers view_navigation.launch " &
+xterm -title navigation -bg navy -e " cd ${PATH_CATKIN_WS} && source devel/setup.bash && roslaunch turtlebot_rviz_launchers view_navigation.launch rviz_path:=${PATH_CATKIN_WS}/src/rvizConfig/homeServiceConfig.rviz" &
 
 sleep 7
 
