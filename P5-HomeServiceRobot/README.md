@@ -103,8 +103,8 @@ Directory Structure
 
 ```
 
-- [add_markers.cpp](/catkin_ws/src/pick_objects/src/add_markers.cpp): C++ script, communicate with `pick_objects` node and control the marker appearance to simulate object pick up and drop off - USed in Home Service Robot
-- [add_markers_timed.cpp](/catkin_ws/src/pick_objects/src/add_markers_timed.cpp): C++ script, communicate with `pick_objects` node and control the marker appearance to simulate object pick up and drop off   
+- [add_markers.cpp](./catkin_ws/src/add_markers/src/add_markers.cpp): C++ script, communicate with `pick_objects` node and control the marker appearance to simulate object pick up and drop off - USed in Home Service Robot
+- [add_markers_timed.cpp](/catkin_ws/src/add_markers/src/add_markers_timed.cpp): C++ script, communicate with `pick_objects` node and control the marker appearance to simulate object pick up and drop off   
 - [pick_objects.cpp](/catkin_ws/src/pick_objects/src/pick_objects.cpp): C++ script, communicate with `add_markers` node and command the robot to pick up the object  
 - [homeServiceConfig.rviz](/catkin_ws/src/rvizConfig/homeServiceConfig.rviz): rvizConfig file for home service robot demo which contained `markers` option  
 - [add_markers.sh](/catkin_ws/src/scripts/add_markers.sh): Shell script file to deploy a turtlebot inside your environment, model a virtual object with markers in `rviz`.  
