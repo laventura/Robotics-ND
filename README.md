@@ -9,4 +9,5 @@ Here are the projects:
 - Project-2: [Go Chase It](P2-GoChaseIt)
 - Project-3: [Where Am I](P3-Where)
 - Project-4: [Map My World](P4-MapMyWorld)
+- Project-5: [Home Service Robot](P5-HomeServiceRobot)
 
