@@ -2,6 +2,8 @@
 Project 5 of Udacity Robotics Software Engineer Nanodegree
 
 ![Overview](./p5-pick-objs-2020-12-22_18.21.03.mp4)
+---
+![Robot moving](./Robot_moving.png)
 
 
 ## Overview  
